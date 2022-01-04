@@ -1,4 +1,4 @@
-
+ 
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +10,9 @@
         </header>
 
         <article>
-            <time>published: 03.01.2022, 12:30</time>
             <h2><a href="">My first post</a></h2>
+            <time>published: 03.01.2022, 12:30</time>
+
             <p>An ideal cryptocurrency investment platform is expected to be SIMPLE, SECURE, and FLEXIBLE.
 
                 CoinSwitch Kuber was designed with the idea to build a simple crypto investment platform that makes crypto investment as easy as ordering food online.
@@ -20,11 +21,30 @@
         </article>
 
         <article>
-            <time>published: 03.01.2022, 12:45</time>
             <h2><a href="">My second post</a></h2>
+            <time>published: 03.01.2022, 12:45</time>
+
             <p>Apart from the most popular coins available in the market, we offer more than 100 cryptocurrencies.
                 Unlike some other exchanges that support only popular coins such as Bitcoins, 
                 Ethereum, etc, we also support other legitimate altcoins and stablecoins available in the market. 
                 Variety enables our users to choose from many currencies and mitigate risks by diversifying their investments</p>
         </article>
+        <article>
+            <h2><a href="">My post list through query</a></h2>
+            <time>published: 04.01.2022, 01:11</time>
+            <p>
+                {% for post in posts %}
+                    {{ post }}
+                {% endfor %}
+            </p>
+        </article>
+
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
     </body>
+    </html>
